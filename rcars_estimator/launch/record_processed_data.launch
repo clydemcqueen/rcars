@@ -1,0 +1,7 @@
+<launch>
+  <arg name="outputFile" default="rcarsProcessed.bag" />
+
+  <node pkg="rosbag" type="record" name="record"
+       args="tf tf_static -e '/rcars(.*)' -O $(arg outputFile)" />
+
+</launch>

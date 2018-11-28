@@ -1,0 +1,13 @@
+<launch>
+
+  <param name="/rcars/tagSize" value="0.232" />
+  <node name="visensor_node" pkg="visensor_node" type="visensor_node" />
+  
+  <node name="detector" ns="rcars" pkg="rcars_detector" type="rcars_detector_node" output="screen">
+     <param name="tagFamily" value="4" />
+     <param name="publishDebugImage" value="true" />
+     <param name="useMultiThreading" value="true" />
+     <param name="nThreads" value="4" />
+  </node>
+  
+</launch>

@@ -1,0 +1,37 @@
+<launch>
+
+  <arg name="extNodeName" default=""/>
+  <arg name="camTopicName" default="/cam0"/>
+  <arg name="imuTopicName" default="/imu0"/>
+  <param name="/rcars/tagSize" value="0.16" />
+
+
+ 
+  <node name="image_proc" pkg="image_proc" type="image_proc" ns="$(arg extNodeName)$(arg camTopicName)" />
+
+  <node name="detector" ns="rcars" pkg="rcars_detector" type="rcars_detector_node" output="screen">
+     <param name="tagFamily" value="4" />
+     <param name="publishDebugImage" value="true" />
+     <param name="useMultiThreading" value="true" />
+     <param name="nThreads" value="4" />
+     <param name="extNodeName" value="$(arg extNodeName)" />
+     <param name="camTopicName" value="$(arg camTopicName)" type="str"/>     
+     <param name="imuTopicName" value="$(arg imuTopicName)" type="str"/>     
+  </node>
+  
+  <node name="estimator" ns="rcars" pkg="rcars_estimator" type="rcars_estimator_node" output="screen">
+    <rosparam command="delete" ns="workspace" />
+    <!--rosparam command="load" file="$(find rcars_estimator)/config/workspaces/test.yaml" ns="workspace" /-->
+    <param name="filterParameterFile" value="$(find rcars_estimator)/config/EKFsettings.info"/>
+    <param name="overwriteWorkspace" value="false" />
+    <param name="initializeWithStaticTagOnly" value="false" />
+    <param name="calibrationViewCountThreshold" value="10" />
+    <param name="workspaceFilename" value="$(find rcars_estimator)/config/workspaces/test.yaml" />
+    <param name="autosaveWorkspace" value="false" />
+    <param name="extNodeName" value="$(arg extNodeName)" />
+    <param name="camTopicName" value="$(arg camTopicName)" type="str"/>     
+    <param name="imuTopicName" value="$(arg imuTopicName)" type="str"/>     
+    
+  </node>
+
+</launch>

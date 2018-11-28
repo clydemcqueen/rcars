@@ -1,0 +1,10 @@
+<launch>
+  <node name="path_visualizer" ns="rcars" pkg="rcars_visualization" type="rcars_path_visualization_node" output="screen">
+    <param name="frameSkip" value="0"/>
+  	<param name="lineWidth" value="0.03" />
+  	<param name="lineColorR" value="1.0" />
+  	<param name="lineColorG" value="1.0" />
+  	<param name="lineColorB" value="1.0" />
+  	<param name="drawFrame" value="rcars_tag57_dyn" />
+  </node>  
+</launch>

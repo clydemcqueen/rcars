@@ -1,0 +1,29 @@
+<launch>
+  <arg name="outputFile" default="rcars.bag" />
+  <node name="image_proc" pkg="image_proc" type="image_proc" ns="/cam0" />
+  
+  <param name="/rcars/tagSize" value="0.232" />
+  
+  <node name="detector" ns="rcars" pkg="rcars_detector" type="rcars_detector_node" output="screen">
+     <param name="tagFamily" value="4" />
+     <param name="publishDebugImage" value="true" />
+     <param name="useMultiThreading" value="true" />
+     <param name="nThreads" value="4" />
+  </node>
+  
+  <node name="visualizer" ns="rcars" pkg="rcars_visualization" type="rcars_image_visualization_node" output="screen" />
+
+  <node name="visensor_node" pkg="visensor_node" type="visensor_node" />
+
+  <node pkg="rosbag" type="record" name="record"
+       args="/cam0/image_raw /cam0/calibration /cam0/camera_info /cam1/image_raw /cam1/calibration /cam1/camera_info /imu0 /visensor_node/parameter_descriptions -O $(arg outputFile)" />
+
+  <node pkg="image_view" type="image_view" name="image_view">
+        <remap from="image" to="/cam0/image_raw"/>
+  </node>
+  
+    <node pkg="image_view" type="image_view" name="image_view2" output="screen">
+        <remap from="image" to="/rcars/visualizer/detectorImage"/>
+  </node>
+  
+</launch>

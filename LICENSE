@@ -1,0 +1,9 @@
+The package contains of three sub-packages with Licenses attached to each:
+
+RCARS Estimator - Apache 2
+RCARS Detector - GNU GPL v3
+RCARS Visualization - Apache 2
+
+See licenses in respective subfolders.
+
+Note: This repository contains the external library cv2cg which is distributed under the GPL v2 license. See author and license information therein. 

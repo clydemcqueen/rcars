@@ -1,0 +1,5 @@
+<launch>
+  <node name="loop_closure_evaluation" ns="rcars" pkg="rcars_visualization" type="rcars_loop_closure_evaluation_node" output="screen">
+    <param name="loop_closure_time_threshold" value="15"/>
+  </node>  
+</launch>

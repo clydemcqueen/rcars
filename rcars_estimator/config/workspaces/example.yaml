@@ -1,0 +1,44 @@
+  
+calibratedTags : [0, 1]
+
+referenceTagId : 0
+
+T_workspace_refTag :
+  position:
+    x : 0.0
+    y : 0.0
+    z : 0.0
+  orientation:
+    w : 1.0
+    x : 0.0
+    y : 0.0
+    z : 0.0
+
+tags:
+  tag0:
+    type : static
+    pose:
+       position:
+          x : 0.0
+          y : 0.0
+          z : 0.0
+       orientation:
+          w : 1.0
+          x : 0.0
+          y : 0.0
+          z : 0.0
+
+  tag1:
+    type : static
+    pose:
+       position:
+          x : 1.0
+          y : 2.0
+          z : 3.0
+       orientation:
+          w : 1.0
+          x : 0.2
+          y : 0.1
+          z : 0.0
+
+

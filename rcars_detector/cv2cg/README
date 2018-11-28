@@ -1,0 +1,10 @@
+cv2cg library
+=============
+
+Source: https://code.google.com/p/cv2cg/
+Retrieved/Modified: 27-Oct-2014
+License: GNU GPL v3
+
+This version is slightly modified in terms of build system and an added function for retrieving the relative transformation between tag and camera in TagDetector.hpp.
+
+We will try to improve the build system such that we can use an unaltered version of cv2cg.
